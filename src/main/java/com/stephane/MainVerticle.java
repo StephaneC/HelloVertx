@@ -3,10 +3,8 @@ import io.vertx.core.AbstractVerticle;
 
 public class MainVerticle extends AbstractVerticle {
   public void start() {
-    vertx.createHttpServer().requestHandler(req -> {
-      req.response()
-        .putHeader("content-type", "text/plain")
-        .end("Hello from Vert.x!");
-    }).listen(8080);
+    vertx.deployVerticle("com.stephane.HelloVerticle");
+    // Deploy a JavaScript verticle
+    vertx.deployVerticle("../../../JSVerticle.js");
   }
 }

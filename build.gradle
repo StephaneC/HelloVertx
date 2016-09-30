@@ -17,6 +17,12 @@ mainClassName = 'io.vertx.core.Launcher'
 
 dependencies {
   compile "io.vertx:vertx-core:$version"
+  compile "io.vertx:vertx-redis-client:$version"
+  compile "io.vertx:vertx-lang-js:$version"
+}
+
+processResources {
+  from 'src/main/js'
 }
 
 shadowJar {
